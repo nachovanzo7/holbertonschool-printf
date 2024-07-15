@@ -19,3 +19,7 @@ Los especificadores de formato son secuencias de caracteres que comienzan con `%
 ## EJEMPLOS
 
 >printf "Hola, %s!\n" "mundo"
+
+## RETORNO
+
+La función printf devuelve un entero (`int`) que representa la cantidad de caracteres impresos (excluyendo el carácter nulo de terminación).
