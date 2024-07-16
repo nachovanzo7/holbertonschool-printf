@@ -1,4 +1,4 @@
-# PRINTF
+ PRINTF
 
 `printf` es una herramienta poderosa para generar salidas en scripts de shell. A diferencia del comando `echo`, `printf` permite un mayor control sobre el formato de la salida, lo que lo hace ideal para situaciones en las que se requiere precisión.
 
