@@ -64,29 +64,35 @@ int printporc(va_list argumento)
 
 int printint(int argumento)
 {
-	int x = argumento;
 	int len = 0;
 	unsigned int num;
-	char digito;
+	char copia[10];
+	int i = 0;
 
-	if (x < 0) /* Si el numero es negativo */
+	if (argumento < 0) /* Si el numero es negativo */
 	{
 		_putchar('-');
-		num = -x; /*Valor absoluto */
+		num = -argumento; /*Valor absoluto */
 		len++;
 	}
 	else /* Si el numero es positivo */
 	{
-		num = x;
+		num = argumento;
 	}
 
-	while (num > 0) /*Recorro cada posicion del entero*/
+	while (num > 0) /* Recorro cada posición del enteo  */
 	{
-		digito = num % 10 + '0'; /* Calculo cuantas decenas equivale */
-		_putchar(digito); /*Imprimo el digito obtenido */
-		num /= 10; /* Evaluo el proximo digito */
+		copia[i++] = (num % 10) + '0'; /* Calculo cuántas decenas equivale*/
+	       					/*y guardo el dígito en el buffe*/
+		num /= 10; /*Evaluo el próxim digit*/
+	}
+
+	while (i > 0) /*Imprimo los dígitos en orden invers*/
+	{
+		_putchar(copia[--i]);
 		len++;
 	}
+
 
 	return (len);
 }
