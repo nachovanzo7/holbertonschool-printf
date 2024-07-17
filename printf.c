@@ -15,7 +15,6 @@ int _printf(const char *format, ...)
 	va_start(argumento, format);
 	while (format && format[i])
 	{
-		i++;
 		if (format[i] == '%')
 		{
 			i++;
@@ -37,12 +36,12 @@ int _printf(const char *format, ...)
 				break;
 
 				case 'd':
-					len = printdecimal(argumento);
+					len = printfloat(argumento);
 					i++;
 				break;
 
 				case 'i':
-					len = printint(argumento);
+					len = printint(va_arg(argumento, int));
 					i++;
 				break;
 			}

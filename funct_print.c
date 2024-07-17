@@ -62,9 +62,9 @@ int printporc(va_list argumento)
  *@argumento: es el argumento pasado por parametro
  */
 
-int printint(va_list argumento)
+int printint(int argumento)
 {
-	int x = va_arg(argumento, int);
+	int x = argumento;
 	int len = 0;
 	unsigned int num;
 	char digito;
@@ -105,9 +105,6 @@ int printfloat(va_list argumento)
 	int len = 0, parte_entera;
 	double parte_decimal;
 	int digito, i;
-	va_list copia;
-
-	va_copy(copia, argumento);
 	
 
 	if (numero < 0)
@@ -120,19 +117,21 @@ int printfloat(va_list argumento)
 	parte_decimal = numero - parte_entera; /*Quitamos la parte entera y */
 						/*obtenemos solamente los decimales*/
 
-	len += printint(parte_entera); /*Imprimir y obtener la longitud impresa*/
-	_putchar('.');
-	len++;
-
-	for (i = 0; i < 6; i++)
+	len += printint(parte_entera);/*Imprimir y obtener la longitud impresa*/
+	if ((parte_decimal) != 0)
 	{
-		parte_decimal *= 10; /* Movemos al siguiente digito */
-		digito = (int)parte_decimal; /* Casteamos a int */
-		_putchar('0' + digito);
-		parte_decimal -= digito; /* Le restamos el digito de la parte decimal */
-		/*Asi preparamos la variable para la proxima iteracion*/
+		_putchar('.');
 		len++;
-	}
+
+		for (i = 0; i < 6; i++)
+		{
+			parte_decimal *= 10; /* Movemos al siguiente digito */
+			digito = (int)parte_decimal; /* Casteamos a int */
+			_putchar('0' + digito);
+			parte_decimal -= digito; /* Le restamos el digito de la parte decimal */
+			/*Asi preparamos la variable para la proxima iteracion*/
+	}		len++;
+		}
 
 	return (len);
 }
