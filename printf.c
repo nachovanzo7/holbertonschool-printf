@@ -9,49 +9,51 @@
 
 int _printf(const char *format, ...)
 {
-	/* Atributos */
-	int i = 0;
+	int i = 0, len;
 	va_list argumento;
 
 	va_start(argumento, format);
-
-	/* Bucle - While */
 	while (format && format[i])
 	{
+		i++;
 		if (format[i] == '%')
 		{
 			i++;
-
 			switch (format[i])
-			{ 
-				case "c":
-					printchar(argumento);
+			{
+				case 'c':
+					len = printchar(argumento);
+					i++;
 				break;
 
-				case "s":
-					printstr(argumento);
+				case 's':
+					len = printstr(argumento);
+					i++;
 				break;
 
-				case "%":
-					printporc(argumento);
+				case '%':
+					len = printporc(argumento);
+					i++;
 				break;
 
-				case "d":
-					printdecimal(argumento);
+				case 'd':
+					len = printdecimal(argumento);
+					i++;
 				break;
 
-				case "i":
-					printint(argumento);
+				case 'i':
+					len = printint(argumento);
+					i++;
 				break;
 			}
-		}	
-	}	
-		
-		
-
-		/* If - verificar si se encuentra '%' */
-
-			/* Switch - cada uno de los tipos */
-			/* Llamar funcion correspondiente */
-		
+		}
+		else
+		{
+			_putchar(format[i]);
+			i++;
+			len++;
+		}
+	}
+	va_end(argumento);
+	return (len);
 }
