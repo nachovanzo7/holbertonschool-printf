@@ -2,6 +2,8 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+int default_switch(char i, int *p, va_list argumento);
+
 /**
  *_printf - Imprimir una cadena de texto, aplicando especificadores de comando
  *Return: retorna la longitud de la cadena impresa (int)
@@ -14,7 +16,6 @@ int _printf(const char *format, ...)
 	va_list argumento;
 
 	va_start(argumento, format);
-
 	while (format && format[i] != '\0')
 	{
 		if (format[i] == '%')
@@ -22,38 +23,19 @@ int _printf(const char *format, ...)
 			i++;
 			switch (format[i])
 			{
-				case 'c':
-					len += printchar(argumento);
-					i++;
-				break;
-
-				case 's':
-					len += printstr(argumento);
-					i++;
-				break;
-
-				case '%':
-					len += printporc(argumento);
-					i++;
-				break;
-
 				case 'd':
 					len += printfloat(argumento);
 					i++;
 				break;
-
 				case 'i':
 					len += printint(va_arg(argumento, int));
 					i++;
 				break;
-
 				case '\0':
 					return (-1);
 				break;
-
 				default:
-					_putchar(format[i - 1]);
-					len += 1;
+					default_switch(format[i], &len, argumento);
 				break;
 			}
 		}
@@ -64,10 +46,44 @@ int _printf(const char *format, ...)
 			len++;
 		}
 	}
-
 	if (format == NULL)
 		return (-1);
-
 	va_end(argumento);
 	return (len);
+}
+
+
+/**
+*default_switch - Recurso de respaldo por "lines" betty
+*Return: retorna la longitud de lo impreso
+*@i: caracter donde estoy parado
+*@p: puntero a la longitud dada por _printf
+*@argumento: argumento de variadic printf
+*/
+int default_switch(char i, int *p, va_list argumento)
+{
+	int *len = p;
+
+	switch (i)
+	{
+		case 'c':
+			*len += printchar(argumento);
+			i++;
+		break;
+		case 's':
+			*len += printstr(argumento);
+			i++;
+		break;
+
+		case '%':
+			*len += printporc(argumento);
+			i++;
+		break;
+		default:
+			_putchar('%');
+			*len += 1;
+		break;
+	}
+
+	return (*len);
 }
