@@ -51,7 +51,7 @@ int _printf(const char *format, ...)
 					return (-1);
 				break;
 
-				case '!':
+				default:
 					_putchar(format[i - 1]);
 					len += 1;
 				break;
