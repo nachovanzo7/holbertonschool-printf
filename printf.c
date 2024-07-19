@@ -46,6 +46,10 @@ int _printf(const char *format, ...)
 					len += printint(va_arg(argumento, int));
 					i++;
 				break;
+
+				case '\0':
+					return (-1);
+				break;
 			}
 		}
 		else

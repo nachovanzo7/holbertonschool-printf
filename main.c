@@ -11,7 +11,15 @@ int main(void)
 {
     int len = 0;
     int len2 = 0;
-    
+   
+
+    len = _printf("%");
+    len2 = printf("%");
+
+    printf("len = %d\n", len);
+    printf("len2 = %d\n", len2);
+    printf("\n-------------------------\n");
+
     len = _printf(NULL);
     len2 = printf(NULL);
 
