@@ -68,7 +68,7 @@ int printint(int argumento)
 	unsigned int num;
 	char copia[10];
 	int i = 0;
-	
+
 	if (argumento == 0)
 	{
 		_putchar('0');
@@ -117,7 +117,7 @@ int printfloat(int argumento)
 	unsigned int num;
 	char copia[10];
 	int i = 0;
-	
+
 	if (argumento == 0)
 	{
 		_putchar('0');
