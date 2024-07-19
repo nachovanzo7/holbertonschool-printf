@@ -17,7 +17,7 @@ int main(void)
     len2 = printf("%!\n");
 
     printf("len = %d\n", len);
-    printf("len2 = %d\n", len2);
+    printf("lenDOS = %d\n", len2);
     printf("\n-------------------------\n");
 
     len = _printf(NULL);

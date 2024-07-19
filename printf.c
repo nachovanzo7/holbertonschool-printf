@@ -50,15 +50,12 @@ int _printf(const char *format, ...)
 				case '\0':
 					return (-1);
 				break;
-			}
 
-			if (format[i - 1] == '%')
-			{
-				_putchar(format[i - 1]);
-				_putchar(format[i]);
-				i++;
+				case '!':
+					_putchar(format[i - 1]);
+					len += 1;
+				break;
 			}
-
 		}
 		else
 		{
