@@ -105,39 +105,37 @@ int printint(int argumento)
  *@argumento: es el argumento pasado por parametro
  */
 
-int printfloat(va_list argumento)
+int printfloat(int argumento)
 {
-	double numero = va_arg(argumento, double);
-	int len = 0, parte_entera;
-	double parte_decimal;
-	int digito, i;
+	int len = 0;
+	unsigned int num;
+	char copia[10];
+	int i = 0;
 
-
-	if (numero < 0)
+	if (argumento < 0) /* Si el numero es negativo */
 	{
-		_putchar('-'); /*Imprimimos el simbolo negativo*/
-		numero = -numero; /*Utilizamos el valor absoluto*/
+		_putchar('-');
+		num = -argumento; /*Valor absoluto */
 		len++;
 	}
-	parte_entera = (int)numero; /*Casteamos el float a int*/
-	parte_decimal = numero - parte_entera; /*Quitamos la parte entera y */
-						/*obtenemos solamente los decimales*/
-
-	len += printint(parte_entera);/*Imprimir y obtener la longitud impresa*/
-	if ((parte_decimal) != 0)
+	else /* Si el numero es positivo */
 	{
-		_putchar('.');
-		len++;
+		num = argumento;
+	}
 
-		for (i = 0; i < 6; i++)
-		{
-			parte_decimal *= 10; /* Movemos al siguiente digito */
-			digito = (int)parte_decimal; /* Casteamos a int */
-			_putchar('0' + digito);
-			parte_decimal -= digito; /* Le restamos el digito de la parte decimal */
-			/*Asi preparamos la variable para la proxima iteracion*/
-	}		len++;
-		}
+	while (num > 0) /* Recorro cada posición del enteo  */
+	{
+		copia[i++] = (num % 10) + '0'; /* Calculo cuántas decenas equivale*/
+						/*y guardo el dígito en el buffe*/
+		num /= 10; /*Evaluo el próxim digit*/
+	}
+
+	while (i > 0) /*Imprimo los dígitos en orden invers*/
+	{
+		_putchar(copia[--i]);
+		len++;
+	}
+
 
 	return (len);
 }

@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 			switch (format[i])
 			{
 				case 'd':
-					len += printfloat(argumento);
+					len += printfloat(va_arg(argumento, int));
 					i++;
 				break;
 				case 'i':

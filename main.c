@@ -11,7 +11,7 @@ int main(void)
 {
     int len = 0;
     int len2 = 0;
-   
+
 
     len = _printf("%!\n");
     len2 = printf("%!\n");
@@ -34,9 +34,8 @@ int main(void)
     printf("\n-------------------------\n");
     len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
-    len = 2.4;
-    _printf("Length:[%d, %i]\n", len, len);
-    printf("Length:[%d, %i]\n", 32.2, len2);
+    _printf("Decimal:[%d, %i]\n", 32.2, len);
+    printf("Decimal:[%d, %i]\n", 32.2, len2);
     _printf("Negative:[%d]\n", -762534);
     printf("Negative:[%d]\n", -762534);
     _printf("Character:[%c]\n", 'A');
