@@ -58,7 +58,7 @@ int _printf(const char *format, ...)
 *Return: retorna la longitud de lo impreso
 *@format: caracter donde estoy parado
 *@argumento: argumento de variadic printf
-*@i = int donde estoy posicionado en format
+*@i: int donde estoy posicionado en format
 */
 int default_switch(char format, va_list argumento, int *i)
 {

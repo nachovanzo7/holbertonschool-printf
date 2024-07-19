@@ -83,7 +83,7 @@ int printint(int argumento)
 	while (num > 0) /* Recorro cada posición del enteo  */
 	{
 		copia[i++] = (num % 10) + '0'; /* Calculo cuántas decenas equivale*/
-	       					/*y guardo el dígito en el buffe*/
+						/*y guardo el dígito en el buffe*/
 		num /= 10; /*Evaluo el próxim digit*/
 	}
 
@@ -111,7 +111,7 @@ int printfloat(va_list argumento)
 	int len = 0, parte_entera;
 	double parte_decimal;
 	int digito, i;
-	
+
 
 	if (numero < 0)
 	{
