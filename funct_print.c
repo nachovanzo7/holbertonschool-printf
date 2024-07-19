@@ -115,6 +115,7 @@ int printfloat(int argumento)
 	if (argumento == 0)
 	{
 		_putchar('0');
+		len += 2;
 	}
 
 	if (argumento < 0) /* Si el numero es negativo */
