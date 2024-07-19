@@ -13,8 +13,8 @@ int main(void)
     int len2 = 0;
 
 
-    len = _printf("%!\n");
-    len2 = printf("%!\n");
+    len = _printf("%d", 0);
+    len2 = printf("%d\n", 0);
 
     printf("len = %d\n", len);
     printf("lenDOS = %d\n", len2);
