@@ -2,7 +2,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-int default_switch(char i, int *p, va_list argumento);
+int default_switch(char i, int p, va_list argumento);
 
 /**
  *_printf - Imprimir una cadena de texto, aplicando especificadores de comando
@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 					return (-1);
 				break;
 				default:
-					default_switch(format[i], &len, argumento);
+					len += default_switch(format[i], len, argumento);
 				break;
 			}
 		}
@@ -60,30 +60,26 @@ int _printf(const char *format, ...)
 *@p: puntero a la longitud dada por _printf
 *@argumento: argumento de variadic printf
 */
-int default_switch(char i, int *p, va_list argumento)
+int default_switch(char i, int p, va_list argumento)
 {
-	int *len = p;
 
 	switch (i)
 	{
 		case 'c':
-			*len += printchar(argumento);
-			i++;
+			p += printchar(argumento);
 		break;
 		case 's':
-			*len += printstr(argumento);
-			i++;
+			p += printstr(argumento);
 		break;
 
 		case '%':
-			*len += printporc(argumento);
-			i++;
+			p += printporc(argumento);
 		break;
 		default:
 			_putchar('%');
-			*len += 1;
+			p += 1;
 		break;
 	}
 
-	return (*len);
+	return (p);
 }
