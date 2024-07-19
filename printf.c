@@ -2,7 +2,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-int default_switch(char i, int p, va_list argumento);
+int default_switch(char format, int p, va_list argumento, int *i);
 
 /**
  *_printf - Imprimir una cadena de texto, aplicando especificadores de comando
@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 					return (-1);
 				break;
 				default:
-					len += default_switch(format[i], len, argumento);
+					len += default_switch(format[i], len, argumento, &i);
 				break;
 			}
 		}
@@ -56,24 +56,30 @@ int _printf(const char *format, ...)
 /**
 *default_switch - Recurso de respaldo por "lines" betty
 *Return: retorna la longitud de lo impreso
-*@i: caracter donde estoy parado
+*@format: caracter donde estoy parado
 *@p: puntero a la longitud dada por _printf
 *@argumento: argumento de variadic printf
+*@i = int donde estoy posicionado en format
 */
-int default_switch(char i, int p, va_list argumento)
+int default_switch(char format, int p, va_list argumento, int *i)
 {
 
-	switch (i)
+	int *puntero = i;
+
+	switch (format)
 	{
 		case 'c':
 			p += printchar(argumento);
+			*puntero += 1;
 		break;
 		case 's':
 			p += printstr(argumento);
+			*puntero += 1;
 		break;
 
 		case '%':
 			p += printporc(argumento);
+			*puntero += 1;
 		break;
 		default:
 			_putchar('%');
@@ -83,3 +89,4 @@ int default_switch(char i, int p, va_list argumento)
 
 	return (p);
 }
+
