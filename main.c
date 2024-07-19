@@ -9,12 +9,12 @@
  */
 int main(void)
 {
-    int len;
-    int len2;
+    int len = 0;
+    int len2 = 0;
 
     printf("probando caso de im´primir caracter y string\n");
-    len = printf("A char inside a sentence: %c. Did it work?\n", 'F');
-    len2 =printf("A char inside a sentence: %c. Did it work?\n", 'F');
+    len = _printf("A char inside a sentence: %c. Did it work?\n", 'F');
+    len2 = printf("A char inside a sentence: %c. Did it work?\n", 'F');
     printf("len = %d\n", len);
     printf("len2 = %d\n", len2);
     printf("\n-------------------------\n");

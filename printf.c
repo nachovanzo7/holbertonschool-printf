@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
+#include <stdio.h>
 
 /**
  *_printf - Imprimir una cadena de texto, aplicando especificadores de comando
@@ -9,7 +10,7 @@
 
 int _printf(const char *format, ...)
 {
-	int i = 0, len;
+	int i = 0, len = 0;
 	va_list argumento;
 
 	va_start(argumento, format);
@@ -21,7 +22,7 @@ int _printf(const char *format, ...)
 			switch (format[i])
 			{
 				case 'c':
-					len = printchar(argumento);
+					len += printchar(argumento);
 					i++;
 				break;
 
