@@ -27,22 +27,22 @@ int _printf(const char *format, ...)
 				break;
 
 				case 's':
-					len = printstr(argumento);
+					len += printstr(argumento);
 					i++;
 				break;
 
 				case '%':
-					len = printporc(argumento);
+					len += printporc(argumento);
 					i++;
 				break;
 
 				case 'd':
-					len = printfloat(argumento);
+					len += printfloat(argumento);
 					i++;
 				break;
 
 				case 'i':
-					len = printint(va_arg(argumento, int));
+					len += printint(va_arg(argumento, int));
 					i++;
 				break;
 			}
