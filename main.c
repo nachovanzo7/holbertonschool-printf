@@ -11,6 +11,12 @@ int main(void)
 {
     int len = 0;
     int len2 = 0;
+    
+    len = _printf(NULL);
+    len2 = printf(NULL);
+
+    printf("len = %d\n", len);
+    printf("len2 = %d\n", len2);
 
     printf("probando caso de im´primir caracter y string\n");
     len = _printf("A char inside a sentence: %c. Did it work?\n", 'F');
