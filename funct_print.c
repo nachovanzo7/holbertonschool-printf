@@ -68,6 +68,12 @@ int printint(int argumento)
 	unsigned int num;
 	char copia[10];
 	int i = 0;
+	
+	if (argumento == 0)
+	{
+		_putchar('0');
+		len += 1;
+	}
 
 	if (argumento < 0) /* Si el numero es negativo */
 	{
