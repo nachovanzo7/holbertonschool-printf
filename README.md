@@ -68,4 +68,6 @@ Delegación de **función** a su respectivo **especificador de formato**:
 - **%i** ---> **printint**
 - **%d** ---> **printfloat**
 
+*Función auxiliar*: - **default_switch**: se utiliza para el correcto funcionamiento del *switch* y captar todos los posibles **especificadores de formato**.
+Se creó por consecuencia de no poder escribir +40 lineas dentro de cada función creada.
 
