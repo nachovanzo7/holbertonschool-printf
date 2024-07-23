@@ -26,7 +26,7 @@ La función printf devuelve un entero (**`int`**) que representa la cantidad de 
 
 ## FLOWCHART
 
-![Printfflow](https://github.com/user-attachments/assets/4fc31f5f-a875-481c-bd60-4174d6f7937d)
+![Diagrama en blanco](https://github.com/user-attachments/assets/e545338d-5f6e-46eb-ad4d-c7de803cb426)
 
 ## ARCHIVOS
 
